@@ -437,9 +437,9 @@ func (m *Message) ToFailover() Failover {
 		Hierarchy:             FailoverHierarchy(hierarchy),
 		LastPacketSent:        time.Unix(int64(lastPacketSent), 0),
 		LastTimestampReceived: time.Unix(int64(lastTimestampReceived), 0),
-		Skew:                  skew,
-		MaxResponseDelay:      maxResponseDelay,
-		CurUnackedUpdates:     curUnackedUpdates,
+		Skew:              skew,
+		MaxResponseDelay:  maxResponseDelay,
+		CurUnackedUpdates: curUnackedUpdates,
 	}
 }
 
@@ -849,6 +849,7 @@ func (con *Connection) CreateHost(host Host) (Host, error) {
 	return response.ToHost(), nil
 }
 
+/*
 func (con *Connection) Update(handle int32, object Object) error {
 	// Notes: Cannot change a host's name
 
@@ -876,6 +877,7 @@ func (con *Connection) Update(handle int32, object Object) error {
 
 	return nil
 }
+*/
 
 func (con *Connection) Shutdown() {
 	// open Control object, set state to 2, update object, rejoice
